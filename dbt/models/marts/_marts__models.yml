@@ -1,0 +1,27 @@
+version: 2
+
+models:
+  - name: fct_load_forecast_error
+    description: Forecast vs. actual grid load and residual load per quarter hour (50Hertz)
+    columns:
+      - name: start_ts
+        description: Start of the quarter hour
+        data_tests:
+          - unique
+          - not_null
+      - name: hour_local
+        description: Hour of the day in German time (0-23)
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+                quote: false
+
+  - name: agg_forecast_error_by_hour
+    description: Forecast error per hour of the day (bias, MAE, WAPE)
+    columns:
+      - name: hour_local
+        data_tests:
+          - unique
+          - not_null
