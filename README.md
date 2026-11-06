@@ -33,6 +33,13 @@ All tools are free and run locally with Docker.
 - Transform and test the data with dbt
 - Build a dashboard with Streamlit
 
+## Results
+
+![Forecast error by hour of day](docs/images/forecast_error_by_hour.png)
+
+In September 2026, the 50Hertz load forecast was most accurate at night (about 5 % WAPE)
+and systematically too low around midday (about −120 MWh per quarter hour, ≈ 480 MW).
+The residual load forecast misses more, because it also contains wind and solar forecast errors.
 ## Data source
 
 Bundesnetzagentur | SMARD.de, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
