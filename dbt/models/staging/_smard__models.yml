@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: stg_smard__actual_consumption
+    description: Actual consumption with clear names and units (MWh per quarter hour)
+    columns:
+      - name: start_ts
+        description: Start of the quarter hour (timestamp with time zone)
+        data_tests:
+          - unique
+          - not_null
+      - name: grid_load_mwh
+        description: Grid load in MWh per quarter hour
+        data_tests:
+          - not_null:
+              config:
+                severity: warn   # SMARD has a few gaps: report them, don't stop the pipeline
+
+  - name: stg_smard__forecasted_consumption
+    description: Forecasted consumption with clear names and units (MWh per quarter hour)
+    columns:
+      - name: start_ts
+        data_tests:
+          - unique
+          - not_null
+      - name: grid_load_mwh
+        data_tests:
+          - not_null

@@ -1,0 +1,21 @@
+version: 2
+
+sources:
+  - name: smard
+    description: SMARD consumption data (50Hertz, quarter-hour), loaded by ingestion/load_csv_to_postgres.py
+    schema: raw
+    tables:
+      - name: actual_consumption
+        description: Actual consumption, one row per quarter hour
+        columns:
+          - name: start_ts
+            data_tests:
+              - unique
+              - not_null
+      - name: forecasted_consumption
+        description: Day-ahead forecast of consumption, one row per quarter hour
+        columns:
+          - name: start_ts
+            data_tests:
+              - unique
+              - not_null
