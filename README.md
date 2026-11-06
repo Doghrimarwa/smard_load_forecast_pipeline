@@ -9,7 +9,7 @@ This project compares forecasted and actual grid load in the 50Hertz control are
 
 - Actual and forecasted consumption from SMARD
 - 50Hertz control area, 15-minute resolution
-- CSV and XML files
+- CSV, json and XML files
 
 ## Tools
 
@@ -27,7 +27,7 @@ All tools are free and run locally with Docker.
 ## Steps
 
 - Download SMARD data
-- Read the CSV and XML files with Python
+- Read the CSV, json and XML files with Python
 - Load the data into PostgreSQL with Docker
 - Automate the pipeline with Airflow
 - Transform and test the data with dbt
