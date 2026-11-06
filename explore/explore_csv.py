@@ -5,7 +5,6 @@ Run from the project folder:
 """
 
 from pathlib import Path
-
 import pandas as pd
 
 # Show all columns when printing tables
@@ -96,8 +95,7 @@ def compare(actual: pd.DataFrame, forecast: pd.DataFrame) -> None:
     print("Quarter hours in both files:", len(both))
     print("Mean error (bias):", round(both["error"].mean(), 1), "MWh")
     print("Mean absolute error:", round(both["error"].abs().mean(), 1), "MWh")
-    print("Largest miss:", round(both["error"].abs().max(), 1), "MWh at",
-          both["error"].abs().idxmax())
+    print("Largest miss:", round(both["error"].abs().max(), 1), "MWh at", both["error"].abs().idxmax())
     print("\nMean absolute error per hour of the day:")
     print(both["error"].abs().groupby(both.index.hour).mean().round(0))
 
